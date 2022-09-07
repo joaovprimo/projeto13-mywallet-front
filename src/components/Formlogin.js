@@ -17,14 +17,15 @@ setFormlog({...formlog,
 
 function makingLogin(e){
 e.preventDefault();
+navigate("/menu");
 console.log("enviou");
 }
 
 return(
     <>
     <Formstyle  onSubmit={makingLogin}>
-        <input type="email" placeholder="E-mail" value={formlog.email} name="email" onChange={handleform} />
-        <input type="password" placeholder="Senha" value={formlog.senha} name="senha" onChange={handleform} />
+        <input type="email" placeholder="E-mail" value={formlog.email} name="email" onChange={handleform} required/>
+        <input type="password" placeholder="Senha" value={formlog.senha} name="senha" onChange={handleform} required/>
         <Button type="submit"> Entrar </Button>
         <Styledlink to="/cadastro">Primeira vez? Cadastre-se!</Styledlink>
     </Formstyle>
