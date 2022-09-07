@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useContext, useState } from 'react'
 import Container from "./Container";
 import UserContext from './Context/Context';
@@ -17,7 +17,7 @@ export default function Menu (){
     <Container2>
         <Top>
         <h1>Olá Fulano</h1>
-        <img src={saida}/>
+        <Link to='/'><img src={saida}/></Link>
         </Top>
         <List>
         {arrinputs.length === 0 ? <h1>Não há registros de
@@ -33,11 +33,11 @@ export default function Menu (){
         </List>
         
         <Inserts>
-          <Receipts>
+          <Receipts to='/entrada'>
           <ion-icon name="add-circle-outline"></ion-icon>
             <h2>Nova Entrada</h2>
           </Receipts>
-          <Outgoing>
+          <Outgoing to='/saida'>
           <ion-icon name="remove-circle-outline"></ion-icon>
           <h2>Nova saída</h2>
           </Outgoing>
@@ -77,7 +77,7 @@ justify-content:space-around;
 margin-top:15px;
 `
 
-const Receipts= styled.button`
+const Receipts= styled(Link)`
 background-color:rgba(163, 40, 214, 1);
 width: 155px;
 height: 114px;
@@ -87,10 +87,12 @@ flex-direction:column;
 align-items:space-between;
 border-style:none;
 color:#ffffff;
+text-decoration:none;
 
 ion-icon{
     margin-top:15px;
     font-size:25px;
+    margin-left:10px;
 }
 
 h2{
@@ -101,10 +103,11 @@ h2{
     font-size: 17px;
     margin-top:30px;
     text-align: initial;
+    margin-left:10px;
 }
 
 `
-const Outgoing = styled.button`
+const Outgoing = styled(Link)`
 background-color:rgba(163, 40, 214, 1);
 width: 155px;
 height: 114px;
@@ -114,10 +117,12 @@ flex-direction:column;
 align-items:space-between;
 border-style:none;
 color:#ffffff;
+text-decoration:none;
 
 ion-icon{
     margin-top:15px;
     font-size:25px;
+    margin-left:10px;
 }
 
 h2{
@@ -128,6 +133,7 @@ h2{
     font-size: 17px;
     margin-top:30px;
     text-align: initial;
+    margin-left:10px;
 }
 `
 const Inpt = styled.div`
