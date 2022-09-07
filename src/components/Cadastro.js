@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
+import Container from "./Container";
 import styled from 'styled-components';
-import Formlogin from './Formlogin';
-import Container from './Container';
+import Formcadastro from './Formcadastro';
 
-export default function Login (){
+export default function Cadastro(){
 
 return(
     <>
     <Container>
-    <Logo>MyWallet</Logo>
-    <Formlogin/>
+        <Logo>MyWallet</Logo>
+        <Formcadastro/>
     </Container>
     </>
 )
@@ -21,4 +21,3 @@ font-size: 32px;
 color: #FFFFFF;
 margin-bottom:25px;
 `
-

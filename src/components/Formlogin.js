@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button'
 import UserContext from './Context/Context'
 import Formstyle from './Formstyle'
@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 export default function Formlogin(){
 const {formlog, setFormlog} = useContext(UserContext);
+const navigate = useNavigate();
 
 function handleform(e){
 setFormlog({...formlog,
