@@ -6,7 +6,7 @@ import Cadastro from "./Cadastro";
 import Menu from './Menu';
 import Entrada from './Entrada';
 import Saida from './Saida';
-
+//Faltando criar as conexões do axios para dar funcionalidade ao projeto
 
 export default function App(){
     const [valores, setValores] = useState(0)

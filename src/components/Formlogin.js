@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import Button from './Button'
-import UserContext from './Context/Context'
-import Formstyle from './Formstyle'
+import Button from './Button';
+import UserContext from './Context/Context';
+import Formstyle from './Formstyle';
 import styled from 'styled-components';
 
 export default function Formlogin(){
