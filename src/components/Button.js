@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
-export default function Button ({children}){
-return(
-<But>
-    {children}
-</But>
-)
-}
-
-const But = styled.button`
+const Button = styled.button`
 width: 330px;
 height: 45px;
 background: #A328D6;
@@ -22,3 +14,5 @@ font-family: 'Raleway';
 border-style:none;
 margin-bottom:35px;
 `
+
+export default  Button

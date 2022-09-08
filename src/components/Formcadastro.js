@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Button from './Button'
 import UserContext from './Context/Context'
 import Formstyle from './Formstyle'
 import styled from 'styled-components';
 
 export default function Formcadastro(){
+    const navigate= useNavigate();
     const [password, setPassword] = useState("");
     const [formCadastro, setFormCadastro] = useState ({
         nome:"",
@@ -23,7 +24,9 @@ export default function Formcadastro(){
         e.preventDefault();
         if(formCadastro.senha===password){
             console.log("iguais");
+            navigate('/')
         }else{
+            alert("favor preeencher os campos corretamente")
             console.log("deu ruim");
         }
     }
