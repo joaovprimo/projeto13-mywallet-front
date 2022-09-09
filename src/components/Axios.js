@@ -13,12 +13,12 @@ function createHeaders (){
 }
 
 function postaLogin(form){
-const promise = axios.post(`${Base_URL}login`, form);
+const promise = axios.post(`${Base_URL}singin`, form);
 return promise;
 }
 
 function postRegister (form){
-    const promise = axios.post(`${Base_URL}register`,form);
+    const promise = axios.post(`${Base_URL}singup`,form);
     return promise;
 }
 

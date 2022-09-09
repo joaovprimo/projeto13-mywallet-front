@@ -4,13 +4,14 @@ import Button from './Button'
 import UserContext from './Context/Context'
 import Formstyle from './Formstyle'
 import styled from 'styled-components';
+import {postRegister} from "./Axios";
 
 export default function Formcadastro(){
     const navigate= useNavigate();
     const [password, setPassword] = useState("");
     const [formCadastro, setFormCadastro] = useState ({
         nome:"",
-        emails:"",
+        email:"",
         senha:"",
     });
 
@@ -23,8 +24,11 @@ export default function Formcadastro(){
     function datas(e){
         e.preventDefault();
         if(formCadastro.senha===password){
-            console.log("iguais");
-            navigate('/')
+            console.log(formCadastro);
+            postRegister(formCadastro).then(()=>{
+                navigate('/')
+            }).catch(()=> alert("erro"));
+            
         }else{
             alert("favor preeencher os campos corretamente")
             console.log("deu ruim");
