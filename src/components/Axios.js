@@ -12,7 +12,7 @@ function createHeaders (){
     return config;
 }
 
-function postaLogin(form){
+function postLogin(form){
 const promise = axios.post(`${Base_URL}singin`, form);
 return promise;
 }
@@ -40,4 +40,4 @@ function postEntrada(content){
     return promise;
 }
 
-export {postaLogin, postRegister, getList, postSaida, postEntrada}
+export {postLogin, postRegister, getList, postSaida, postEntrada}

@@ -25,7 +25,8 @@ export default function Formcadastro(){
         e.preventDefault();
         if(formCadastro.senha===password){
             console.log(formCadastro);
-            postRegister(formCadastro).then(()=>{
+            postRegister(formCadastro).then((resp)=>{
+                console.log(resp)
                 navigate('/')
             }).catch(()=> alert("erro"));
             

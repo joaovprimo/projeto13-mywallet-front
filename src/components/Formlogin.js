@@ -4,6 +4,7 @@ import Button from './Button';
 import UserContext from './Context/Context';
 import Formstyle from './Formstyle';
 import styled from 'styled-components';
+import {postLogin} from "./Axios";
 
 export default function Formlogin(){
 const {formlog, setFormlog} = useContext(UserContext);
@@ -17,8 +18,15 @@ setFormlog({...formlog,
 
 function makingLogin(e){
 e.preventDefault();
-navigate("/menu");
-console.log("enviou");
+postLogin(formlog).then((res)=>{
+    localStorage.setItem('token', res.data.token);
+    setFormlog(res.data)
+    navigate("/menu");
+}).catch(()=>{
+    console.log("algo deu errado");
+})
+
+
 }
 
 return(
