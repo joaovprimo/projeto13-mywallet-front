@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import {postLogin} from "./Axios";
 
 export default function Formlogin(){
-const {formlog, setFormlog} = useContext(UserContext);
+const {formlog, setFormlog,setToken} = useContext(UserContext);
 const navigate = useNavigate();
 
 function handleform(e){
@@ -19,8 +19,9 @@ setFormlog({...formlog,
 function makingLogin(e){
 e.preventDefault();
 postLogin(formlog).then((res)=>{
-    localStorage.setItem('token', res.data.token);
-    setFormlog(res.data)
+    console.log(res.data)
+    localStorage.setItem('token', res.data);
+    setToken(res.data);
     navigate("/menu");
 }).catch(()=>{
     console.log("algo deu errado");

@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import UserContext from './Context/Context';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
+import { postEntrada } from './Axios';
 
 export default function Entrada(){
     const navigate= useNavigate();
@@ -20,8 +21,8 @@ export default function Entrada(){
 
 function sendent(e){
     e.preventDefault();
-setArrinputs([...arrinputs, inputsent]);
-navigate('/menu')
+postEntrada(inputsent).then(()=>
+    navigate('/menu')).catch(()=> console.log("erro na inserção"));
 }
 
     return(
