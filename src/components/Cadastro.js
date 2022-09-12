@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Container from "./Container";
 import styled from 'styled-components';
 import Formcadastro from './Formcadastro';

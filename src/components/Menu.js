@@ -15,7 +15,6 @@ export default function Menu (){
 
     useEffect(() => {
         getList().then((hbt) => {
-            console.log(hbt.data)
             setArrinputs(hbt.data);
         })
     }, [])
@@ -23,6 +22,7 @@ export default function Menu (){
     function finalizar (){
         localStorage.clear('token');
         navigate('/');
+        window.location.reload();
     }
     return( 
         <>

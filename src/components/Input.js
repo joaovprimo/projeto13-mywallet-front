@@ -6,16 +6,16 @@ export default function Input({value, type, description, day}){
     let newValores= Number(value);
     if(type === "entrada"){
         useEffect(()=>{
-            console.log(newValores)
+           
             setValores((valores)=>valores + newValores);
         },[])
     }else{
         useEffect(()=>{
-            console.log(newValores)
+            
             setValores((valores)=>valores + (-newValores));
         },[])
     }
-    console.log(valores);
+    
     
     return (
         <>

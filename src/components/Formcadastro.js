@@ -31,7 +31,6 @@ export default function Formcadastro(){
             
         }else{
             alert("favor preeencher os campos corretamente")
-            console.log("deu ruim");
         }
     }
 

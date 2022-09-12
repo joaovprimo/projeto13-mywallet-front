@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import {postLogin} from "./Axios";
 
 export default function Formlogin(){
-const {formlog, setFormlog,setToken,nomeUser, setNomeUser} = useContext(UserContext);
+const {formlog, setFormlog,setToken,nomeUser, setNomeUser, setValores} = useContext(UserContext);
 const navigate = useNavigate();
 function handleform(e){
 setFormlog({...formlog,
