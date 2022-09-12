@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import UserContext from './Context/Context';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
-import { postEntrada } from './Axios';
+import { postEntrada } from './Axios/Axios';
 
 export default function Entrada(){
     const navigate= useNavigate();
@@ -22,7 +22,6 @@ export default function Entrada(){
 function sendent(e){
     e.preventDefault();
 postEntrada(inputsent).then(()=>{
-    setValores(0)
     navigate('/menu');
     setInputsent({value: "",
     type: "entrada",

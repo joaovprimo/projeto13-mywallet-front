@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button'
-import UserContext from './Context/Context'
 import Formstyle from './Formstyle'
 import styled from 'styled-components';
-import {postRegister} from "./Axios";
+import {postRegister} from "./Axios/Axioss";
 
 export default function Formcadastro(){
     const navigate= useNavigate();

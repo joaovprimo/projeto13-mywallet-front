@@ -10,7 +10,7 @@ import { getList } from "./Axios";
 
 
 export default function Menu (){
-    const {arrinputs, setArrinputs,inputs, setInputs, valores,setValores,nomeUser} = useContext(UserContext);
+    const {arrinputs, setArrinputs, valores,nomeUser} = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {

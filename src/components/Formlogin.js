@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button';
 import UserContext from './Context/Context';
 import Formstyle from './Formstyle';
 import styled from 'styled-components';
-import {postLogin} from "./Axios";
+import {postLogin} from "./Axios/Axios";
 
 export default function Formlogin(){
-const {formlog, setFormlog,setToken,nomeUser, setNomeUser, setValores} = useContext(UserContext);
+const {formlog, setFormlog,setToken, setNomeUser} = useContext(UserContext);
 const navigate = useNavigate();
 function handleform(e){
 setFormlog({...formlog,

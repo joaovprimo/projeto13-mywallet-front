@@ -7,11 +7,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import UserContext from './Context/Context';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
-import { postSaida } from './Axios';
+import { postSaida } from './Axios/Axios';
 
 export default function Saida(){
     const navigate= useNavigate();
-    const {inputssai, setInputssai, setArrinputs,  setValores} = useContext(UserContext);
+    const {inputssai, setInputssai, setValores} = useContext(UserContext);
 
     function handleform(e){
         setInputssai({...inputssai,

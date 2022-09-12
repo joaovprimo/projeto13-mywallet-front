@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { useState, useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import UserContext from './Context/Context'
 export default function Input({value, type, description, day}){
-    const {valores, setValores} = useContext(UserContext);
+    const { setValores} = useContext(UserContext);
     let newValores= Number(value);
     if(type === "entrada"){
         useEffect(()=>{
