@@ -11,7 +11,7 @@ import { postEntrada } from './Axios';
 
 export default function Entrada(){
     const navigate= useNavigate();
-    const {inputsent, setInputsent, setArrinputs, arrinputs} = useContext(UserContext);
+    const {inputsent, setInputsent,  setValores} = useContext(UserContext);
 
     function handleform(e){
         setInputsent({...inputsent,
@@ -21,8 +21,13 @@ export default function Entrada(){
 
 function sendent(e){
     e.preventDefault();
-postEntrada(inputsent).then(()=>
-    navigate('/menu')).catch(()=> console.log("erro na inserção"));
+postEntrada(inputsent).then(()=>{
+    setValores(0)
+    navigate('/menu');
+    setInputsent({value: "",
+    type: "entrada",
+    description:""})
+}).catch(()=> console.log("erro na inserção"));
 }
 
     return(

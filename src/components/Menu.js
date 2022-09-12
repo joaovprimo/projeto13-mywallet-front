@@ -1,28 +1,40 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useContext, useState } from 'react'
+import { useContext, useEffect} from 'react'
 import Container from "./Container";
 import UserContext from './Context/Context';
 import Top from './Top';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
 import Input from './Input';
+import { getList } from "./Axios";
 
 
 export default function Menu (){
-    const {arrinputs, setArrinputs,inputs, setInputs, valores} = useContext(UserContext);
+    const {arrinputs, setArrinputs,inputs, setInputs, valores,setValores,nomeUser} = useContext(UserContext);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        getList().then((hbt) => {
+            console.log(hbt.data)
+            setArrinputs(hbt.data);
+        })
+    }, [])
+
+    function finalizar (){
+        localStorage.clear('token');
+        navigate('/');
+    }
     return( 
         <>
     <Container2>
         <Top>
-        <h1>Olá Fulano</h1>
-        <Link to='/'><img src={saida}/></Link>
+        <h1>Olá, {nomeUser}</h1>
+        <ButLink onClick={finalizar} ><img src={saida}/></ButLink>
         </Top>
         <List>
         {arrinputs.length === 0 ? <h1>Não há registros de
             entrada ou saída</h1> : <><Inpt> {arrinputs.map((inp, index)=>
-            <Input hey={index} value={inp.value} type={inp.type}  description={inp.description}/>)}
+            <Input hey={index} value={inp.value} type={inp.type} day={inp.day} description={inp.description}/>)}
             </Inpt> 
             <Saldo>
             <h3>Saldo</h3>
@@ -163,4 +175,8 @@ margin-left:210px;
 color: ${props => props.valor>0 ? "rgba(3, 172, 0, 1)" : "rgba(199, 0, 0, 1)"};
 font-weight:bold;
 font-size:20px;
+`
+
+const ButLink = styled.div`
+
 `

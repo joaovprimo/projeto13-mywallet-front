@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useState, useContext, useEffect } from 'react';
 import UserContext from './Context/Context'
-export default function Input({value, type, description}){
+export default function Input({value, type, description, day}){
     const {valores, setValores} = useContext(UserContext);
     let newValores= Number(value);
     if(type === "entrada"){
@@ -20,7 +20,7 @@ export default function Input({value, type, description}){
     return (
         <>
         <Insert>
-        <h2>15/08</h2>
+        <h2>{day}</h2>
         <h3>{description}</h3>
         <Value type={type}>{value}</Value>
         </Insert>

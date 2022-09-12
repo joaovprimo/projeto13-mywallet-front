@@ -7,10 +7,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import UserContext from './Context/Context';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
+import { postSaida } from './Axios';
 
 export default function Saida(){
     const navigate= useNavigate();
-    const {inputssai, setInputssai, setArrinputs, arrinputs} = useContext(UserContext);
+    const {inputssai, setInputssai, setArrinputs,  setValores} = useContext(UserContext);
 
     function handleform(e){
         setInputssai({...inputssai,
@@ -20,8 +21,14 @@ export default function Saida(){
 
 function sendent(e){
     e.preventDefault();
-setArrinputs([...arrinputs, inputssai]);
-navigate('/menu')
+    postSaida(inputssai).then(()=>{
+        setValores(0);
+        navigate('/menu');
+        setInputssai({ value: "",
+        type: "saida",
+        description:""})
+    }).catch(()=> console.log("erro na inserção")
+    )
 }
 
     return(

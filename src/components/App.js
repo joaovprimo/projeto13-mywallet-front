@@ -12,13 +12,12 @@ import PrivatePage from './Private/Privatepage';
 export default function App(){
     const [token,setToken] = useState("");
     const [valores, setValores] = useState(0)
+    const [nomeUser, setNomeUser] = useState("")
     const [formlog,setFormlog] = useState({
         email:"",
         senha:""
     });
     const [arrinputs, setArrinputs] = useState([
-        {token, value:"1000", type:"saida", description:"mercado"}, {value:"100", type:"entrada",description:"presente"},
-        {value:"1000", type:"entrada", description:"salario"}, {value:"200", type:"saida", description:"Luz"}
     ]);
     const [inputsent, setInputsent] = useState({
         value: "",
@@ -30,11 +29,10 @@ export default function App(){
         type: "saida",
         description:""
     })
-console.log(arrinputs);
     return(
         <>
         <BrowserRouter>
-        <UserContext.Provider value={{token,setToken,formlog, setFormlog, arrinputs, setArrinputs,inputsent, setInputsent, inputssai, setInputssai, valores, setValores}}>
+        <UserContext.Provider value={{nomeUser, setNomeUser, token,setToken,formlog, setFormlog, arrinputs, setArrinputs,inputsent, setInputsent, inputssai, setInputssai, valores, setValores}}>
         <Routes>
             <Route path="/" element={<Login/>}/>
             <Route path="/cadastro" element={<Cadastro/>}/>
