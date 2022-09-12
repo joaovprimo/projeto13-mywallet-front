@@ -5,6 +5,12 @@ font-family: 'Raleway';
 display:flex;
 flex-direction:column;
 input{
+    box-sizing:border-box;
+    padding-left: 15px;
+    font-family: 'Raleway';
+    font-size:20px;
+    font-family: 'Raleway';
+    color: #000000;
     width:325px;
     height:60px;
     background-color: #FFFFFF;
@@ -15,7 +21,6 @@ margin-bottom:10px;
 input::placeholder{
     font-family: 'Raleway';
     color: #000000;
-    padding-left: 15px;
     font-size:20px;
 }
 `
