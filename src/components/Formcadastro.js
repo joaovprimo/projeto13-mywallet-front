@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from './Button'
 import Formstyle from './Formstyle'
 import styled from 'styled-components';
-import {postRegister} from "./Axios/Axioss";
+import {postRegister} from "./Axios/Axios";
 
 export default function Formcadastro(){
     const navigate= useNavigate();

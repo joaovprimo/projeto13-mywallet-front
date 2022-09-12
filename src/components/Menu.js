@@ -6,7 +6,7 @@ import Top from './Top';
 import styled from 'styled-components';
 import saida from  '../images/saida.png';
 import Input from './Input';
-import { getList } from "./Axios";
+import { getList } from "./Axios/Axios";
 
 
 export default function Menu (){
