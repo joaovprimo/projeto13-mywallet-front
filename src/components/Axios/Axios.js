@@ -40,4 +40,11 @@ function postEntrada(content){
     return promise;
 }
 
-export {postLogin, postRegister, getList, postSaida, postEntrada}
+function deleteObj(obj){
+    console.log(obj);
+    const config = createHeaders();
+    const promise = axios.delete(`${Base_URL}delete/${obj._id}`, config);
+    return promise;
+}
+
+export {postLogin, postRegister, getList, postSaida, postEntrada, deleteObj}

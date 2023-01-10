@@ -10,11 +10,12 @@ import { getList } from "./Axios/Axios";
 
 
 export default function Menu (){
-    const {arrinputs, setArrinputs, valores,nomeUser} = useContext(UserContext);
+    const {arrinputs, setArrinputs,setValores, valores,nomeUser} = useContext(UserContext);
     const navigate = useNavigate();
-
+    console.log(valores)
     useEffect(() => {
         getList().then((hbt) => {
+            setValores(valores)
             setArrinputs(hbt.data);
         })
     }, [])
@@ -34,7 +35,7 @@ export default function Menu (){
         <List>
         {arrinputs.length === 0 ? <h1>Não há registros de
             entrada ou saída</h1> : <><Inpt> {arrinputs.map((inp, index)=>
-            <Input hey={index} value={inp.value} type={inp.type} day={inp.day} description={inp.description}/>)}
+            <Input hey={index} inp={inp} value={inp.value} type={inp.type} day={inp.day} description={inp.description}/>)}
             </Inpt> 
             <Saldo>
             <h3>Saldo</h3>

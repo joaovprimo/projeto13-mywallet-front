@@ -1,21 +1,29 @@
 import styled from 'styled-components';
 import { useContext, useEffect } from 'react';
-import UserContext from './Context/Context'
-export default function Input({value, type, description, day}){
-    const { setValores} = useContext(UserContext);
+import UserContext from './Context/Context';
+import trash from '../images/trash.png';
+import { deleteObj, getList } from './Axios/Axios';
+
+export default function Input({value, type, description, day, inp}){
+    const { setValores, valores, arrinputs } = useContext(UserContext);
     let newValores= Number(value);
     if(type === "entrada"){
         useEffect(()=>{
-           
             setValores((valores)=>valores + newValores);
         },[])
     }else{
         useEffect(()=>{
-            
             setValores((valores)=>valores + (-newValores));
         },[])
     }
     
+    function deleteInfo(select){
+        deleteObj(select).then((data)=>{
+            window.location.reload();
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
     
     return (
         <>
@@ -23,15 +31,23 @@ export default function Input({value, type, description, day}){
         <h2>{day}</h2>
         <h3>{description}</h3>
         <Value type={type}>{value}</Value>
+        <Trash src={trash} onClick={()=>deleteInfo(inp)}/>
         </Insert>
         </>
     )
 }
 
-
+const Trash = styled.img`
+width:25px;
+height:25px;
+margin-right:5px;
+`
 
 const Insert = styled.div`
 display:flex;
+width:100%;
+justify-content:space-between;
+margin-bottom:15px;
 
 h2{
     color: #C6C6C6;
